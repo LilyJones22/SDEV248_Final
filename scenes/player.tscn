@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xqt5r4ullpk2"]
+[gd_scene load_steps=8 format=3 uid="uid://xqt5r4ullpk2"]
 
 [ext_resource type="Texture2D" uid="uid://dlwybp13hmulf" path="res://temp_art/temp_player.jpg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dghwv8unhu0cw" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dgrgbsog7et75" path="res://scenes/player_attack.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bbahuebou7yod" path="res://scenes/game_over.tscn" id="3_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(126, 126)
@@ -10,12 +12,15 @@ size = Vector2(126, 126)
 radius = 213.00235
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 71.568146
+radius = 106.07545
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_g2els")
+weapon_scene = ExtResource("2_qhqgy")
+game_over = ExtResource("3_dqkch")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["player"]]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_3vyb7")
 
@@ -33,6 +38,8 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 shape = SubResource("CircleShape2D_qhqgy")
+
+[node name="AttackSpawnPoint" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="Attract" to="." method="_on_attract_body_entered"]
 [connection signal="body_exited" from="Attract" to="." method="_on_attract_body_exited"]

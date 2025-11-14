@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://df8a1hnwcravt"]
+[gd_scene load_steps=5 format=3 uid="uid://df8a1hnwcravt"]
 
 [ext_resource type="Texture2D" uid="uid://c4mhpotpff5r7" path="res://temp_art/temp_enemy.png" id="1_fr7lv"]
 [ext_resource type="Script" uid="uid://cm8en1wx2uqlr" path="res://scripts/enemy_base.gd" id="1_sw0xa"]
@@ -6,7 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw0xa"]
 size = Vector2(112, 112)
 
-[node name="Enemy_Base" type="CharacterBody2D" groups=["enemy"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw0xa"]
+radius = 95.084175
+
+[node name="Enemy_Base" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_sw0xa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,4 +24,13 @@ shape = SubResource("RectangleShape2D_sw0xa")
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="AttackSpawnPoint" type="Marker2D" parent="."]
+
+[node name="DangerZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerZone"]
+shape = SubResource("CircleShape2D_sw0xa")
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="DangerZone" to="." method="_on_danger_zone_body_entered"]
+[connection signal="body_exited" from="DangerZone" to="." method="_on_danger_zone_body_exited"]

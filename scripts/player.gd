@@ -1,6 +1,12 @@
 extends CharacterBody2D
 
 @export var speed = 200
+@export var health = 3
+
+@export var weapon_scene: PackedScene
+@export var game_over: PackedScene
+
+@onready var attack_spawn_point = $AttackSpawnPoint
 
 var direction = Vector2.ZERO
 
@@ -19,15 +25,28 @@ func get_input(): # standard input behavior
 	elif Input.is_action_pressed("move_right"):
 		# $AnimationPlayer.play("walk_right")	ADD LATER
 		direction.x += 1
+		
+	if Input.is_action_just_pressed("attack"):
+		deal_damage()
 
 func take_damage(): # if player gets hurt -- TO DO
 	print("Ouch!")
-	
+	print("..")
+	health -= 1
 	
 func _physics_process(delta):
 	get_input()
 	velocity = direction * speed
 	move_and_slide()
+	
+	if health == 0:
+		die()
+	
+func deal_damage(): # player deals damage
+	var attack_instance = weapon_scene.instantiate()
+	get_parent().add_child(attack_instance)
+	attack_instance.global_position = attack_spawn_point.global_position
+	attack_instance.direction = global_transform.x.normalized()
 	
 func _on_attract_body_entered(body): # enemy enters outer circle
 	if body.is_in_group("enemy"):
@@ -41,7 +60,11 @@ func _on_attract_body_exited(body): # enemy leaves outer circle
 func _on_attack_body_entered(body): # enemy enters innter circle
 	if body.is_in_group("enemy"):
 		body.state = body.HIT
+		body.deal_damage()
 
 func _on_attack_body_exited(body): # enemy enters inner circle
 	if body.is_in_group("enemy"):
 		body.state = body.SURROUND
+
+func die(): # end game if player dies
+	get_tree().change_scene_to_packed(game_over)
