@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
+signal health_changed(amount_changed)
+signal magic_changed(amount_changed)
+
 @export var speed = 200
-@export var health = 3
+@export var health = 20
+@export var magic = 30
 
 @export var weapon_scene: PackedScene
 @export var game_over: PackedScene
@@ -40,6 +44,7 @@ func get_input(): # standard input behavior -- TO DO: animation
 func take_damage(): # if player gets hurt -- TO DO: animation
 	print("Ouch!")
 	print("..")
+	health_changed.emit(-1)
 	health -= 1
 	
 func _physics_process(delta):
@@ -51,6 +56,10 @@ func _physics_process(delta):
 		die()
 	
 func deal_damage(): # player deals damage
+	if magic == 0:
+		return
+	magic_changed.emit(-1)
+	magic -= 1
 	var attack_instance = weapon_scene.instantiate()
 	get_parent().add_child(attack_instance)
 	attack_instance.global_position = attack_spawn_point.global_position
