@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xqt5r4ullpk2"]
+[gd_scene load_steps=9 format=3 uid="uid://xqt5r4ullpk2"]
 
 [ext_resource type="Texture2D" uid="uid://dlwybp13hmulf" path="res://temp_art/temp_player.jpg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dghwv8unhu0cw" path="res://scripts/player.gd" id="1_g2els"]
@@ -13,6 +13,9 @@ radius = 213.00235
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 106.07545
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(41, 80)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
@@ -30,16 +33,26 @@ shape = SubResource("RectangleShape2D_3vyb7")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Attract" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attract"]
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="Attack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="AttackSpawnPoint" type="Marker2D" parent="."]
+
+[node name="Interact" type="Area2D" parent="." groups=["interact"]]
+visible = false
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact" groups=["interact"]]
+position = Vector2(88.5, 0)
+shape = SubResource("RectangleShape2D_dqkch")
 
 [connection signal="body_entered" from="Attract" to="." method="_on_attract_body_entered"]
 [connection signal="body_exited" from="Attract" to="." method="_on_attract_body_exited"]

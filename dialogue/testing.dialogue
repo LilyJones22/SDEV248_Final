@@ -1,0 +1,16 @@
+~ start
+TEMP: This is to test interactions work
+TEMP: I also want to check options
+- Option A
+	set GameState.optionA = true
+- Option B
+	set GameState.optionB = true
+- Escape
+TEMP: Thank you
+=> END
+
+
+
+
+
+

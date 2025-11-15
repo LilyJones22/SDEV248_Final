@@ -10,7 +10,10 @@ extends CharacterBody2D
 
 var direction = Vector2.ZERO
 
-func get_input(): # standard input behavior
+func _ready(): # on startup things
+	$Interact.hide() # ensure player interact area hidden
+
+func get_input(): # standard input behavior -- TO DO: animation
 	direction = Vector2.ZERO
 
 	if Input.is_action_pressed("move_up"):
@@ -28,8 +31,13 @@ func get_input(): # standard input behavior
 		
 	if Input.is_action_just_pressed("attack"):
 		deal_damage()
+		
+	if Input.is_action_just_pressed("interact"):
+		$Interact.show()
+	else:
+		$Interact.hide()
 
-func take_damage(): # if player gets hurt -- TO DO
+func take_damage(): # if player gets hurt -- TO DO: animation
 	print("Ouch!")
 	print("..")
 	health -= 1

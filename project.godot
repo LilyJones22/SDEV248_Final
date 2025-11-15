@@ -15,6 +15,11 @@ run/main_scene="uid://bciu7cpdtxolh"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://scripts/GameState.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"
@@ -24,10 +29,15 @@ window/stretch/mode="viewport"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
 [global_group]
 
 player=""
 enemies=""
+interact=""
 
 [input]
 
@@ -62,10 +72,15 @@ attack={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogue/testing.dialogue")
+
 [layer_names]
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="enemy"
+2d_physics/layer_3="npc"
 
 [rendering]
 

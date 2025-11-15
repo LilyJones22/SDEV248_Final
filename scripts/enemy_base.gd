@@ -34,7 +34,6 @@ func get_circle_position(random): # picks random position around circle to posit
 	var y = kill_circle_center.y + sin(angle) * radius
 	
 	return Vector2(x, y)
-	
 
 func move(target, delta): # moves towards 'player' target
 	var direction = (target - global_position).normalized()
@@ -61,14 +60,14 @@ func _physics_process(delta):
 func _on_attack_timer_timeout():
 	state = ATTACK
 
-func _on_danger_zone_body_entered(body):
+func _on_danger_zone_body_entered(body): # player gets too close to enemy
 	if body.is_in_group("player"):
 		player_in = true
 		while player_in:
 			body.take_damage()
 			await get_tree().create_timer(1).timeout
 
-func _on_danger_zone_body_exited(body):
+func _on_danger_zone_body_exited(body): # player creates distance between enemy
 	if body.is_in_group("player"):
 		player_in = false
 		
