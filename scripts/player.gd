@@ -13,6 +13,8 @@ signal magic_changed(amount_changed)
 @onready var attack_spawn_point = $AttackSpawnPoint
 
 var direction = Vector2.ZERO
+var facing = "down"
+var attacking = false
 
 func _ready(): # on startup things
 	$Interact.hide() # ensure player interact area hidden
@@ -20,21 +22,42 @@ func _ready(): # on startup things
 func get_input(): # standard input behavior -- TO DO: animation
 	direction = Vector2.ZERO
 
+
 	if Input.is_action_pressed("move_up"):
-		# $AnimationPlayer.play("walk_up")		ADD LATER
-		direction.y -= 1
+		if not attacking:
+			facing = "up"
+			$AnimationPlayer.play("walk_up")
+			direction.y -= 1
 	elif Input.is_action_pressed("move_down"):
-		# $AnimationPlayer.play("walk_down") 	ADD LATER
-		direction.y += 1
+		if not attacking:
+			facing = "down"
+			$AnimationPlayer.play("walk_down")
+			direction.y += 1
 	elif Input.is_action_pressed("move_left"):
-		# $AnimationPlayer.play("walk_left") 	ADD LATER
-		direction.x -= 1
+		if not attacking:
+			facing = "left"
+			$AnimationPlayer.play("walk_left")
+			direction.x -= 1
 	elif Input.is_action_pressed("move_right"):
-		# $AnimationPlayer.play("walk_right")	ADD LATER
-		direction.x += 1
+		if not attacking:
+			facing = "right"
+			$AnimationPlayer.play("walk_right")
+			direction.x += 1
 		
 	if Input.is_action_just_pressed("attack"):
-		deal_damage()
+		if magic > 0:
+			attacking = true
+			if facing == "up":
+				$AnimationPlayer.play("attack_up")
+			elif facing == "down":
+				$AnimationPlayer.play("attack_down")
+			elif facing == "left":
+				$AnimationPlayer.play("attack_left")
+			elif facing == "right":
+				$AnimationPlayer.play("attack_right")
+			
+			await get_tree().create_timer(1).timeout
+			deal_damage()
 		
 	if Input.is_action_just_pressed("interact"):
 		$Interact.show()
@@ -50,20 +73,30 @@ func take_damage(): # if player gets hurt -- TO DO: animation
 func _physics_process(delta):
 	get_input()
 	velocity = direction * speed
-	move_and_slide()
+	if direction == Vector2.ZERO: # player not moving
+		if not attacking:
+			if facing == "up":
+				$AnimationPlayer.play("idle_up")
+			elif facing == "down":
+				$AnimationPlayer.play("idle_down")
+			elif facing == "left":
+				$AnimationPlayer.play("idle_left")
+			elif facing == "right":
+				$AnimationPlayer.play("idle_right")
+	else:	
+		move_and_slide()
 	
 	if health == 0:
 		die()
 	
 func deal_damage(): # player deals damage
-	if magic == 0:
-		return
 	magic_changed.emit(-1)
 	magic -= 1
 	var attack_instance = weapon_scene.instantiate()
 	get_parent().add_child(attack_instance)
 	attack_instance.global_position = attack_spawn_point.global_position
 	attack_instance.direction = global_transform.x.normalized()
+	attacking = false
 	
 func _on_attract_body_entered(body): # enemy enters outer circle
 	if body.is_in_group("enemy"):
