@@ -70,7 +70,7 @@ func take_damage(): # if player gets hurt -- TO DO: animation
 	health_changed.emit(-1)
 	health -= 1
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	velocity = direction * speed
 	if direction == Vector2.ZERO: # player not moving

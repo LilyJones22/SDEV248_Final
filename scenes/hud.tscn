@@ -1,25 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://boqtore5ba2s6"]
+[gd_scene load_steps=8 format=3 uid="uid://boqtore5ba2s6"]
 
 [ext_resource type="Script" uid="uid://bnk884m4wscde" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://blskqtvl6al63" path="res://final_art/misc/progress_bar/health_under.png" id="2_047uy"]
+[ext_resource type="Texture2D" uid="uid://dcgfdkhtrjua0" path="res://final_art/misc/progress_bar/overlay.png" id="3_5pdws"]
+[ext_resource type="Texture2D" uid="uid://bw3vmvhkcer06" path="res://final_art/misc/progress_bar/health_progress.png" id="4_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://d4j0tky5nc1bv" path="res://final_art/misc/progress_bar/magic_under.png" id="5_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://ci1g0cocuve0k" path="res://final_art/misc/progress_bar/magic_progress.png" id="6_mphia"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ahhtf"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ahhtf")
 
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="TextureProgressBar" parent="."]
 material = SubResource("CanvasItemMaterial_ahhtf")
-offset_left = 19.0
-offset_top = 38.0
-offset_right = 247.0
-offset_bottom = 76.0
+offset_left = 35.0
+offset_top = 16.0
+offset_right = 102.0
+offset_bottom = 32.0
+scale = Vector2(2, 2)
 max_value = 20.0
 value = 20.0
+texture_under = ExtResource("2_047uy")
+texture_over = ExtResource("3_5pdws")
+texture_progress = ExtResource("4_hd3ao")
 
-[node name="Magic" type="ProgressBar" parent="."]
-offset_left = 889.0
-offset_top = 41.0
-offset_right = 1113.0
-offset_bottom = 68.0
+[node name="Magic" type="TextureProgressBar" parent="."]
+offset_left = 35.0
+offset_top = 59.0
+offset_right = 101.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
 max_value = 30.0
 value = 30.0
+texture_under = ExtResource("5_0i1j5")
+texture_over = ExtResource("3_5pdws")
+texture_progress = ExtResource("6_mphia")
