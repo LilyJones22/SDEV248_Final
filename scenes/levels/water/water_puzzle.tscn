@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://qm3bopgobixm"]
+
+[ext_resource type="Script" uid="uid://dq2466e2owbs6" path="res://scripts/levels/water/water_puzzle.gd" id="1_k33if"]
+[ext_resource type="Texture2D" uid="uid://rkn2buc10ptp" path="res://final_art/enviornment/water/challenge/cursor.png" id="3_wiryj"]
+
+[node name="water puzzle" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
+script = ExtResource("1_k33if")
+
+[node name="Top Left" type="TextureButton" parent="."]
+layout_mode = 2
+
+[node name="Hover" type="TextureRect" parent="Top Left"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_wiryj")
+
+[node name="Top Right" type="TextureButton" parent="."]
+layout_mode = 2
+
+[node name="Hover" type="TextureRect" parent="Top Right"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_wiryj")
+
+[node name="Bottom Left" type="TextureButton" parent="."]
+layout_mode = 2
+
+[node name="Hover" type="TextureRect" parent="Bottom Left"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_wiryj")
+
+[node name="Bottom Right" type="TextureButton" parent="."]
+layout_mode = 2
+
+[node name="Hover" type="TextureRect" parent="Bottom Right"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_wiryj")
+
+[connection signal="mouse_entered" from="Top Left" to="." method="_on_top_left_mouse_entered"]
+[connection signal="mouse_exited" from="Top Left" to="." method="_on_top_left_mouse_exited"]
+[connection signal="mouse_entered" from="Top Right" to="." method="_on_top_right_mouse_entered"]
+[connection signal="mouse_exited" from="Top Right" to="." method="_on_top_right_mouse_exited"]
+[connection signal="mouse_entered" from="Bottom Left" to="." method="_on_bottom_left_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom Left" to="." method="_on_bottom_left_mouse_exited"]
+[connection signal="mouse_entered" from="Bottom Right" to="." method="_on_bottom_right_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom Right" to="." method="_on_bottom_right_mouse_exited"]
