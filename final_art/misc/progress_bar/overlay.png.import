@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6j4lxqg0q1vp"
-path="res://.godot/imported/MyrinSprite.png-6ddbbdac0d0e52584c3b779f7368fd94.ctex"
+uid="uid://dcgfdkhtrjua0"
+path="res://.godot/imported/overlay.png-e86c0a26ad62636416cfc5cb1370ebbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://final_art/MyrinSprite.png"
-dest_files=["res://.godot/imported/MyrinSprite.png-6ddbbdac0d0e52584c3b779f7368fd94.ctex"]
+source_file="res://final_art/misc/progress_bar/overlay.png"
+dest_files=["res://.godot/imported/overlay.png-e86c0a26ad62636416cfc5cb1370ebbd.ctex"]
 
 [params]
 
