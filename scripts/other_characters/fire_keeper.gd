@@ -1,6 +1,6 @@
 extends Area2D
 
-var dialogue = load("res://dialogue/water_keeper.dialogue") # dialogue file
+var dialogue = load("res://dialogue/fire_keeper.dialogue") # dialogue file
 
 var interactable_areas = []
 

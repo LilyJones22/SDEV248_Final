@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bxvbwxbs4cneu"
+path="res://.godot/imported/fire_keeper.dialogue-7e28486e03565fa30bbd73336ff58c5d.tres"
+
+[deps]
+
+source_file="res://dialogue/fire_keeper.dialogue"
+dest_files=["res://.godot/imported/fire_keeper.dialogue-7e28486e03565fa30bbd73336ff58c5d.tres"]
+
+[params]
+
+defaults=true

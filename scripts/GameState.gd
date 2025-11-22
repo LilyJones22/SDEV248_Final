@@ -1,4 +1,4 @@
 extends Node
 
-var optionA = false # TEST
-var optionB = false # TEST
+var preserve_count = 0
+var reject_count = 0

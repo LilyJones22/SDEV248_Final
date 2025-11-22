@@ -1,0 +1,7 @@
+~ start
+Keeper: What would you burn to protect what remains?
+- I won't flinch. Let the flames take what they must
+	set GameState.reject_count += 1
+- I'll protect what remains without sacrificing what matters
+	set GameState.preserve_count += 1
+=> END

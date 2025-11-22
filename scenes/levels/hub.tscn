@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bciu7cpdtxolh"]
+[gd_scene load_steps=4 format=3 uid="uid://bciu7cpdtxolh"]
 
-[ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player.tscn" id="1_qssp3"]
-[ext_resource type="PackedScene" uid="uid://boqtore5ba2s6" path="res://scenes/hud.tscn" id="2_d1od2"]
+[ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="1_qssp3"]
+[ext_resource type="PackedScene" uid="uid://boqtore5ba2s6" path="res://scenes/player_related/hud.tscn" id="2_d1od2"]
+[ext_resource type="PackedScene" uid="uid://bl4h6scfg5nbg" path="res://scenes/other_characters/water_keeper.tscn" id="3_3vq6u"]
 
 [node name="HUB" type="Node"]
 
 [node name="player" parent="." instance=ExtResource("1_qssp3")]
 
 [node name="HUD" parent="." instance=ExtResource("2_d1od2")]
+
+[node name="Water Keeper" parent="." instance=ExtResource("3_3vq6u")]
+position = Vector2(262, 111)
 
 [connection signal="health_changed" from="player" to="HUD" method="_on_player_health_changed"]
 [connection signal="magic_changed" from="player" to="HUD" method="_on_player_magic_changed"]

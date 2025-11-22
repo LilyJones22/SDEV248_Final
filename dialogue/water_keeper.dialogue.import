@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://upggdidk7cu3"
+path="res://.godot/imported/water_keeper.dialogue-5951d3d4e2edc24c79e676fafe2c00b4.tres"
+
+[deps]
+
+source_file="res://dialogue/water_keeper.dialogue"
+dest_files=["res://.godot/imported/water_keeper.dialogue-5951d3d4e2edc24c79e676fafe2c00b4.tres"]
+
+[params]
+
+defaults=true
