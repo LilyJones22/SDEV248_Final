@@ -9,6 +9,7 @@ var player = null
 var speed = 60
 var target
 var player_in = false
+var interested = false
 
 
 func _ready(): 
@@ -26,7 +27,8 @@ func move(target, delta): # moves towards 'player' target
 	move_and_slide()
 	
 func _physics_process(delta):
-	move(player.global_position, delta)
+	if interested:
+		move(player.global_position, delta)
 	
 	if health == 0: # removes enemy if health = 0
 		die()
@@ -67,3 +69,12 @@ func take_damage(): # remove health from enemy
 	
 func die(): # removes enemy from scene
 	queue_free()
+
+
+func _on_interest_zone_body_entered(body):
+	if body.is_in_group("player"):
+		interested = true
+
+func _on_interest_zone_body_exited(body):
+	if body.is_in_group("player"):
+		interested = false

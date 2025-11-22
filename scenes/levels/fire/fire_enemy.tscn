@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vwgtn576x5w6"]
+[gd_scene load_steps=14 format=3 uid="uid://vwgtn576x5w6"]
 
 [ext_resource type="PackedScene" uid="uid://df8a1hnwcravt" path="res://scenes/templates/enemy_base.tscn" id="1_bn0q4"]
 [ext_resource type="Texture2D" uid="uid://dh6ic1yxlxtq1" path="res://final_art/enviornment/fire/flame_enemy.png" id="2_2fcys"]
@@ -6,10 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bn0q4"]
 radius = 41.666668
 
-[sub_resource type="Animation" id="Animation_d8hg8"]
-resource_name = "surround"
-length = 0.75
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_o8xnc"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,10 +15,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.75),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 3]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_rn5bo"]
@@ -40,25 +38,8 @@ tracks/0/keys = {
 "values": [4, 7]
 }
 
-[sub_resource type="Animation" id="Animation_pe58k"]
-resource_name = "hit"
-length = 0.75
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.75),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [8, 11]
-}
-
-[sub_resource type="Animation" id="Animation_mbo0d"]
-resource_name = "surround-attack"
+[sub_resource type="Animation" id="Animation_qoqk1"]
+resource_name = "attack-hit"
 length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [12, 15]
+"values": [16, 19]
 }
 
 [sub_resource type="Animation" id="Animation_sa7xy"]
@@ -89,9 +70,10 @@ tracks/0/keys = {
 "values": [15, 12]
 }
 
-[sub_resource type="Animation" id="Animation_qoqk1"]
-resource_name = "attack-hit"
+[sub_resource type="Animation" id="Animation_pe58k"]
+resource_name = "hit"
 length = 0.75
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,7 +84,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [16, 19]
+"values": [8, 11]
 }
 
 [sub_resource type="Animation" id="Animation_mjaxg"]
@@ -121,8 +103,10 @@ tracks/0/keys = {
 "values": [19, 16]
 }
 
-[sub_resource type="Animation" id="Animation_o8xnc"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_d8hg8"]
+resource_name = "surround"
+length = 0.75
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,10 +114,26 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_mbo0d"]
+resource_name = "surround-attack"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [12, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4wjh"]
@@ -147,6 +147,9 @@ _data = {
 &"surround": SubResource("Animation_d8hg8"),
 &"surround-attack": SubResource("Animation_mbo0d")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fcys"]
+radius = 106.132515
 
 [node name="Fire Enemy" instance=ExtResource("1_bn0q4")]
 scale = Vector2(3, 3)
@@ -169,5 +172,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_u4wjh")
 }
 
+[node name="InterestZone" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InterestZone" index="0"]
+shape = SubResource("CircleShape2D_2fcys")
+
 [connection signal="body_entered" from="WarningZone" to="." method="_on_warning_zone_body_entered"]
 [connection signal="body_exited" from="WarningZone" to="." method="_on_warning_zone_body_exited"]
+[connection signal="body_entered" from="InterestZone" to="." method="_on_interest_zone_body_entered"]
+[connection signal="body_exited" from="InterestZone" to="." method="_on_interest_zone_body_exited"]
