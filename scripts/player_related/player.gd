@@ -12,7 +12,7 @@ signal magic_changed(amount_changed)
 
 @onready var attack_spawn_point = $AttackSpawnPoint
 
-var direction = Vector2.ZERO
+var direction = Vector2.ZERO 
 var facing = "down"
 var attacking = false
 
@@ -94,7 +94,11 @@ func deal_damage(): # player deals damage
 	var attack_instance = weapon_scene.instantiate()
 	get_parent().add_child(attack_instance)
 	attack_instance.global_position = attack_spawn_point.global_position
-	attack_instance.direction = global_transform.x.normalized()
+	match facing:
+		"right": attack_instance.direction = Vector2.RIGHT
+		"left": attack_instance.direction = Vector2.LEFT
+		"up": attack_instance.direction = Vector2.UP
+		"down": attack_instance.direction = Vector2.DOWN
 	attacking = false
 
 
