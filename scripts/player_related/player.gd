@@ -19,7 +19,8 @@ var attacking = false
 func _ready(): # on startup things
 	$Interact.hide() # ensure player interact area hidden
 
-func get_input(): # standard input behavior -- TO DO: animation
+
+func get_input(): # standard input behavior
 	direction = Vector2.ZERO
 
 
@@ -65,8 +66,6 @@ func get_input(): # standard input behavior -- TO DO: animation
 		$Interact.hide()
 
 func take_damage(): # if player gets hurt -- TO DO: animation
-	print("Ouch!")
-	print("..")
 	health_changed.emit(-1)
 	health -= 1
 	
@@ -97,24 +96,8 @@ func deal_damage(): # player deals damage
 	attack_instance.global_position = attack_spawn_point.global_position
 	attack_instance.direction = global_transform.x.normalized()
 	attacking = false
-	
-func _on_attract_body_entered(body): # enemy enters outer circle
-	if body.is_in_group("enemy"):
-		body.attack_timer.start()
 
-func _on_attract_body_exited(body): # enemy leaves outer circle
-	if body.is_in_group("enemy"):
-		body.attack_timer.stop()
-		body.state = body.SURROUND
 
-func _on_attack_body_entered(body): # enemy enters innter circle
-	if body.is_in_group("enemy"):
-		body.state = body.HIT
-		body.deal_damage()
-
-func _on_attack_body_exited(body): # enemy enters inner circle
-	if body.is_in_group("enemy"):
-		body.state = body.SURROUND
 
 func die(): # end game if player dies
 	get_tree().change_scene_to_packed(game_over)
