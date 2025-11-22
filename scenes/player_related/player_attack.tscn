@@ -1,18 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgrgbsog7et75"]
+[gd_scene load_steps=7 format=3 uid="uid://dgrgbsog7et75"]
 
 [ext_resource type="Script" uid="uid://ymdcart0hnoe" path="res://scripts/player_related/player_attack.gd" id="1_pqjam"]
+[ext_resource type="Texture2D" uid="uid://dbk6fks588dhy" path="res://final_art/misc/player_projectile.png" id="2_1ga7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqjam"]
-size = Vector2(50, 50)
+size = Vector2(30, 8)
+
+[sub_resource type="Animation" id="Animation_k202m"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+
+[sub_resource type="Animation" id="Animation_yesrr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qos1"]
+_data = {
+&"RESET": SubResource("Animation_yesrr"),
+&"hit": SubResource("Animation_k202m")
+}
 
 [node name="player_attack" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_pqjam")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_1ga7c")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_pqjam")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6qos1")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
