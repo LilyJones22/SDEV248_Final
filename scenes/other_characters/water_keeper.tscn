@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl4h6scfg5nbg"]
+
+[ext_resource type="Script" uid="uid://u22lisslmbh8" path="res://scripts/other_characters/water_keeper.gd" id="1_mxwcd"]
+[ext_resource type="Texture2D" uid="uid://dnpuqpiuap3al" path="res://final_art/characters/WaterKeeper.png" id="2_suyhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oskpv"]
+size = Vector2(22, 30)
+
+[sub_resource type="Animation" id="Animation_aq4m8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
+}
+
+[sub_resource type="Animation" id="Animation_47jso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51x22"]
+_data = {
+&"RESET": SubResource("Animation_47jso"),
+&"idle": SubResource("Animation_aq4m8")
+}
+
+[node name="Water Keeper" type="Area2D"]
+script = ExtResource("1_mxwcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_suyhv")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oskpv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_51x22")
+}
