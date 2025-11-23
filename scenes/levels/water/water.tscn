@@ -12,23 +12,24 @@
 [node name="water" type="Node"]
 script = ExtResource("1_0bhgi")
 
+[node name="water puzzle" parent="." instance=ExtResource("2_vhbq1")]
+offset_left = 571.0
+offset_top = -32.999992
+offset_right = 611.0
+offset_bottom = 7.0000076
+scale = Vector2(1.4, 1.4)
+
+[node name="puzzle solution" type="Sprite2D" parent="."]
+position = Vector2(346, 61)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_d0whp")
+
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(524, 262)
 
 [node name="player" parent="." instance=ExtResource("1_ppl7k")]
 visible = false
 position = Vector2(-689, 586)
-
-[node name="water puzzle" parent="." instance=ExtResource("2_vhbq1")]
-offset_left = 653.0
-offset_top = 34.0
-offset_right = 693.0
-offset_bottom = 74.0
-
-[node name="puzzle solution" type="Sprite2D" parent="."]
-position = Vector2(346, 61)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_d0whp")
 
 [node name="Water Keeper" parent="." instance=ExtResource("3_exstt")]
 position = Vector2(518, -139)
