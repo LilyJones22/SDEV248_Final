@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3yfxx7avknuy"]
+
+[ext_resource type="Script" uid="uid://c7l51erv7h801" path="res://scripts/levels/exit_mirror.gd" id="1_lbxpa"]
+[ext_resource type="Texture2D" uid="uid://bvgbxulstgrog" path="res://final_art/enviornment/water/mirror_water.png" id="2_vxelh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i75ul"]
+size = Vector2(31.333334, 38.333336)
+
+[node name="ExitMirror" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_lbxpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vxelh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.1789145e-07, 4.500001)
+shape = SubResource("RectangleShape2D_i75ul")
