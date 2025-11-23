@@ -4,4 +4,6 @@ Keeper: What would you burn to protect what remains?
 	set GameState.reject_count += 1
 - I'll protect what remains without sacrificing what matters
 	set GameState.preserve_count += 1
+	
+set GameState.talked_fire = true
 => END

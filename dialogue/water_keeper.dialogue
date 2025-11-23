@@ -4,4 +4,6 @@ Keeper: If your heart breaks do you let the pieces sink or teach them to float?
 	set GameState.reject_count += 1
 - I want to heal, not drown
 	set GameState.preserve_count += 1
+	
+set GameState.talked_water = true
 => END
