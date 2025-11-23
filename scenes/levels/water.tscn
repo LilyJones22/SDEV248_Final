@@ -6,7 +6,7 @@
 
 [node name="water" type="Node"]
 
-[node name="player_spawn" type="Marker2D" parent="."]
+[node name="PlayerSpawn" type="Marker2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("1_ppl7k")]
 visible = false
