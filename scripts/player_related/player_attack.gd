@@ -4,6 +4,21 @@ var health = 1
 var speed = 300
 var direction = Vector2.ZERO
 
+var player = null
+
+func _ready():
+	player = get_tree().get_first_node_in_group("player") 
+	
+	match player.facing:
+		"down":
+			rotation_degrees = 90.0
+		"up":
+			rotation_degrees = -90.0
+		"right":
+			rotation_degrees = 0.0
+		"left": 
+			rotation_degrees = 180.0
+
 
 func _physics_process(delta):
 	global_position += direction * speed * delta

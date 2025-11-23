@@ -105,3 +105,7 @@ func deal_damage(): # player deals damage
 
 func die(): # end game if player dies
 	get_tree().change_scene_to_packed(game_over)
+
+
+func _on_magic_changed(amount_changed: Variant) -> void:
+	pass # Replace with function body.

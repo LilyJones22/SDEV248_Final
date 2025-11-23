@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://xqt5r4ullpk2"]
+[gd_scene load_steps=22 format=3 uid="uid://xqt5r4ullpk2"]
 
 [ext_resource type="Script" uid="uid://dghwv8unhu0cw" path="res://scripts/player_related/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dgrgbsog7et75" path="res://scenes/player_related/player_attack.tscn" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://bbahuebou7yod" path="res://scenes/cutscene/game_over.tscn" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://6j4lxqg0q1vp" path="res://final_art/characters/MyrinSprite.png" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://boqtore5ba2s6" path="res://scenes/player_related/hud.tscn" id="5_nua2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(18, 23)
@@ -527,3 +528,8 @@ shape = SubResource("RectangleShape2D_dqkch")
 libraries = {
 &"": SubResource("AnimationLibrary_y4r1p")
 }
+
+[node name="HUD" parent="." instance=ExtResource("5_nua2e")]
+
+[connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
+[connection signal="magic_changed" from="." to="HUD" method="_on_player_magic_changed"]
