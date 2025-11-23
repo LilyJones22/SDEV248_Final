@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @onready var attack_timer = $AttackTimer
 
+signal death
+
 
 var player = null
 var speed = 60
@@ -68,6 +70,7 @@ func take_damage(): # remove health from enemy
 	health -= 1
 	
 func die(): # removes enemy from scene
+	emit_signal("death")
 	queue_free()
 
 

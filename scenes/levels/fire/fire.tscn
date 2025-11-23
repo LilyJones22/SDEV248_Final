@@ -1,17 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://bleo5s4d27yof"]
+[gd_scene load_steps=8 format=3 uid="uid://bleo5s4d27yof"]
 
 [ext_resource type="PackedScene" uid="uid://bkb1d3o5e4mds" path="res://scenes/other_characters/fire_keeper.tscn" id="1_mblqy"]
+[ext_resource type="Script" uid="uid://bceq1fi8sg2r8" path="res://scripts/levels/fire/fire.gd" id="1_pqkdo"]
 [ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="2_e63pj"]
 [ext_resource type="PackedScene" uid="uid://vwgtn576x5w6" path="res://scenes/levels/fire/fire_enemy.tscn" id="3_31xnf"]
+[ext_resource type="PackedScene" uid="uid://c3yfxx7avknuy" path="res://scenes/levels/exit_mirror.tscn" id="5_ecx1o"]
+[ext_resource type="PackedScene" uid="uid://bciu7cpdtxolh" path="res://scenes/levels/hub.tscn" id="6_7foin"]
+[ext_resource type="Texture2D" uid="uid://dqfafoo748kal" path="res://final_art/enviornment/fire/mirror_fire.png" id="7_linkw"]
 
 [node name="fire" type="Node"]
+script = ExtResource("1_pqkdo")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(572, 275)
 
 [node name="Fire Keeper" parent="." instance=ExtResource("1_mblqy")]
+position = Vector2(569, -333)
 
 [node name="player" parent="." instance=ExtResource("2_e63pj")]
+position = Vector2(-322, 482)
 
 [node name="enemies" type="Node" parent="."]
 
 [node name="Fire Enemy" parent="enemies" instance=ExtResource("3_31xnf")]
+position = Vector2(911.00006, 31)
+
+[node name="ExitMirror" parent="." instance=ExtResource("5_ecx1o")]
+position = Vector2(562, -468)
+next = ExtResource("6_7foin")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="ExitMirror" index="0"]
+texture = ExtResource("7_linkw")
+
+[connection signal="death" from="enemies/Fire Enemy" to="." method="_on_fire_enemy_death"]
+
+[editable path="ExitMirror"]
