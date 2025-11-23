@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsrqu6b5fr4wi"]
+
+[ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="1_ppl7k"]
+[ext_resource type="PackedScene" uid="uid://qm3bopgobixm" path="res://scenes/levels/water/water_puzzle.tscn" id="2_vhbq1"]
+[ext_resource type="PackedScene" uid="uid://bl4h6scfg5nbg" path="res://scenes/other_characters/water_keeper.tscn" id="3_exstt"]
+
+[node name="water" type="Node"]
+
+[node name="player_spawn" type="Marker2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("1_ppl7k")]
+visible = false
+position = Vector2(-689, 586)
+
+[node name="water puzzle" parent="." instance=ExtResource("2_vhbq1")]
+
+[node name="Water Keeper" parent="." instance=ExtResource("3_exstt")]
