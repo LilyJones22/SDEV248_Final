@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="2_e63pj"]
 [ext_resource type="PackedScene" uid="uid://vwgtn576x5w6" path="res://scenes/levels/fire/fire_enemy.tscn" id="3_31xnf"]
 [ext_resource type="PackedScene" uid="uid://c3yfxx7avknuy" path="res://scenes/levels/exit_mirror.tscn" id="5_ecx1o"]
-[ext_resource type="PackedScene" uid="uid://bciu7cpdtxolh" path="res://scenes/levels/hub.tscn" id="6_7foin"]
+[ext_resource type="PackedScene" uid="uid://baub1q61xij1n" path="res://scenes/templates/npc_base.tscn" id="6_7foin"]
 [ext_resource type="Texture2D" uid="uid://dqfafoo748kal" path="res://final_art/enviornment/fire/mirror_fire.png" id="7_linkw"]
 
 [node name="fire" type="Node"]
@@ -15,10 +15,7 @@ script = ExtResource("1_pqkdo")
 position = Vector2(572, 275)
 
 [node name="Fire Keeper" parent="." instance=ExtResource("1_mblqy")]
-position = Vector2(569, -333)
-
-[node name="player" parent="." instance=ExtResource("2_e63pj")]
-position = Vector2(-322, 482)
+position = Vector2(549, -135)
 
 [node name="enemies" type="Node" parent="."]
 
@@ -26,12 +23,15 @@ position = Vector2(-322, 482)
 position = Vector2(911.00006, 31)
 
 [node name="ExitMirror" parent="." instance=ExtResource("5_ecx1o")]
-position = Vector2(562, -468)
+position = Vector2(530, -283)
 next = ExtResource("6_7foin")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="ExitMirror" index="0"]
 texture = ExtResource("7_linkw")
+
+[node name="player" parent="." instance=ExtResource("2_e63pj")]
+position = Vector2(-322, 482)
 
 [connection signal="death" from="enemies/Fire Enemy" to="." method="_on_fire_enemy_death"]
 

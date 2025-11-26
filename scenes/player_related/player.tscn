@@ -497,8 +497,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(3, 3)
-collision_mask = 3
+collision_mask = 31
 script = ExtResource("1_g2els")
 weapon_scene = ExtResource("2_qhqgy")
 game_over = ExtResource("3_dqkch")
@@ -513,6 +512,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [node name="AttackSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(7, 3)

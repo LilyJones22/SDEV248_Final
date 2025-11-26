@@ -173,6 +173,8 @@ libraries = {
 }
 
 [node name="InterestZone" type="Area2D" parent="." index="7"]
+collision_layer = 2
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InterestZone" index="0"]
 shape = SubResource("CircleShape2D_2fcys")

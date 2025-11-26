@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal health_changed(amount_changed)
 signal magic_changed(amount_changed)
 
-@export var speed = 200
+@export var speed = 100
 @export var health = 20
 @export var magic = 30
 

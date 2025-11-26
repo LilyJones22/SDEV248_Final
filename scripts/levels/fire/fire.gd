@@ -10,11 +10,12 @@ func _ready():
 	
 	
 func _physics_process(_delta):
-	if total_enemies <= 0:
+	if total_enemies == 0 and not GameState.talked_fire:
 		$"Fire Keeper".show()
+		$"Fire Keeper".can_interact = true
 	if GameState.talked_fire:
-		$"Fire Keeper".hide()
 		$ExitMirror.show()
+		$ExitMirror.can_interact = true
 
 
 func _on_fire_enemy_death():

@@ -8,8 +8,8 @@ func _ready():
 	
 func _on_water_puzzle_water_solved():
 	$"Water Keeper".show()
+	$"Water Keeper".can_interact = true
 	
 func _physics_process(_delta):
 	if GameState.talked_water:
-		$"Water Keeper".hide()
 		$ExitMirror.show()

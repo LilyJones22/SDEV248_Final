@@ -6,7 +6,6 @@
 size = Vector2(31.333334, 38.333336)
 
 [node name="ExitMirror" type="Area2D"]
-scale = Vector2(3, 3)
 script = ExtResource("1_lbxpa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

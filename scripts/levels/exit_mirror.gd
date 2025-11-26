@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var next : PackedScene
+var can_interact = false
 
 var interactable_areas = []
 

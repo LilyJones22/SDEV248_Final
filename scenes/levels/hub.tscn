@@ -1,11 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://bciu7cpdtxolh"]
+[gd_scene load_steps=8 format=3 uid="uid://bciu7cpdtxolh"]
 
 [ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="1_qssp3"]
-[ext_resource type="PackedScene" uid="uid://vwgtn576x5w6" path="res://scenes/levels/fire/fire_enemy.tscn" id="3_3vq6u"]
+[ext_resource type="Script" uid="uid://djsarg4hpqc1u" path="res://scenes/levels/hub.gd" id="1_ysqli"]
+[ext_resource type="PackedScene" uid="uid://c3yfxx7avknuy" path="res://scenes/levels/exit_mirror.tscn" id="3_t8fgl"]
+[ext_resource type="PackedScene" uid="uid://bleo5s4d27yof" path="res://scenes/levels/fire/fire.tscn" id="4_frsds"]
+[ext_resource type="Texture2D" uid="uid://5dd0o7yh7hvn" path="res://final_art/enviornment/hub/mirrorBlank_fire.png" id="5_hgdgd"]
+[ext_resource type="PackedScene" uid="uid://bsrqu6b5fr4wi" path="res://scenes/levels/water/water.tscn" id="6_x0xvm"]
+[ext_resource type="Texture2D" uid="uid://34xvtnj6nhlp" path="res://final_art/enviornment/hub/mirrorBlank_water.png" id="7_pu6vg"]
 
 [node name="HUB" type="Node"]
+script = ExtResource("1_ysqli")
+
+[node name="Fire" parent="." instance=ExtResource("3_t8fgl")]
+position = Vector2(385, 0)
+next = ExtResource("4_frsds")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Fire" index="0"]
+texture = ExtResource("5_hgdgd")
+
+[node name="Water" parent="." instance=ExtResource("3_t8fgl")]
+position = Vector2(646, 3)
+next = ExtResource("6_x0xvm")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Water" index="0"]
+texture = ExtResource("7_pu6vg")
 
 [node name="player" parent="." instance=ExtResource("1_qssp3")]
 
-[node name="Fire Enemy" parent="." instance=ExtResource("3_3vq6u")]
-position = Vector2(273, 156)
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+
+[editable path="Fire"]
+[editable path="Water"]

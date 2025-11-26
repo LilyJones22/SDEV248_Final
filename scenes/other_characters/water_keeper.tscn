@@ -44,7 +44,6 @@ _data = {
 }
 
 [node name="Water Keeper" type="Area2D"]
-scale = Vector2(3, 3)
 script = ExtResource("1_mxwcd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

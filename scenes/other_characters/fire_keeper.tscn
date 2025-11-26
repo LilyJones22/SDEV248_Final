@@ -6,6 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2q21"]
 size = Vector2(21.333334, 30.666668)
 
+[sub_resource type="Animation" id="Animation_eunie"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_ew8o0"]
 resource_name = "idle"
 loop_mode = 1
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "values": [0, 7]
 }
 
-[sub_resource type="Animation" id="Animation_eunie"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61o1k"]
 _data = {
 &"RESET": SubResource("Animation_eunie"),
@@ -44,7 +44,6 @@ _data = {
 }
 
 [node name="Fire Keeper" type="Area2D"]
-scale = Vector2(3, 3)
 script = ExtResource("1_klxbd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
