@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh6ic1yxlxtq1" path="res://final_art/enviornment/fire/flame_enemy.png" id="2_2fcys"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bn0q4"]
-radius = 41.666668
+radius = 35.70559
 
 [sub_resource type="Animation" id="Animation_o8xnc"]
 length = 0.001
@@ -149,7 +149,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fcys"]
-radius = 106.132515
+radius = 80.083984
 
 [node name="Fire Enemy" instance=ExtResource("1_bn0q4")]
 scale = Vector2(3, 3)

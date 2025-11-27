@@ -45,6 +45,7 @@ _data = {
 
 [node name="player_attack" type="Area2D"]
 rotation = -1.5707964
+scale = Vector2(0.75, 0.75)
 collision_mask = 3
 script = ExtResource("1_pqjam")
 

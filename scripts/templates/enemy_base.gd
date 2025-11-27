@@ -8,7 +8,7 @@ signal death
 
 
 var player = null
-var speed = 60
+var speed = 30
 var target
 var player_in = false
 var interested = false
@@ -18,7 +18,6 @@ func _ready():
 	$AnimationPlayer.play("surround")
 	player = get_tree().get_first_node_in_group("player") 
 	$DangerZone.visible = true  # ensure danger zone is active
-
 
 
 func move(target, delta): # moves towards 'player' target

@@ -1,5 +1,7 @@
 extends Node
 
+var keeper_talked = false
+
 func _ready():
 	$"Water Keeper".hide()
 	$ExitMirror.hide()
