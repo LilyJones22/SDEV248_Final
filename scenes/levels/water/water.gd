@@ -5,11 +5,18 @@ func _ready():
 	$ExitMirror.hide()
 	$player.show()
 	$player.global_position = $PlayerSpawn.global_position
+	$Before.visible = true
+	$KeeperPath.visible = false
+	$MirrorPath.visible = false
 	
 func _on_water_puzzle_water_solved():
+	$KeeperPath.visible = true
+	$Before.set_layer_enabled(0, false)
 	$"Water Keeper".show()
 	$"Water Keeper".can_interact = true
 	
 func _physics_process(_delta):
 	if GameState.talked_water:
+		$MirrorPath.visible = true
+		$KeeperPath.set_layer_enabled(0, false)
 		$ExitMirror.show()
