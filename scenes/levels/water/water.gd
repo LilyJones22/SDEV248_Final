@@ -14,9 +14,11 @@ func _on_water_puzzle_water_solved():
 	$Before.set_layer_enabled(0, false)
 	$"Water Keeper".show()
 	$"Water Keeper".can_interact = true
-	
-func _physics_process(_delta):
-	if GameState.talked_water:
+
+func _on_exit_mirror_interact():
+	get_tree().change_scene_to_file("res://scenes/levels/hub.tscn")
+
+func _on_water_keeper_talked():
 		$MirrorPath.visible = true
 		$KeeperPath.set_layer_enabled(0, false)
 		$ExitMirror.show()

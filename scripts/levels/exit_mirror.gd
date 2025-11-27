@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var next : PackedScene
-var can_interact = false
+signal interact
 
+var can_interact = false
 var interactable_areas = []
 
 func _physics_process(delta):
@@ -14,7 +14,7 @@ func _physics_process(delta):
 			current_interactables.append(area)
 			
 			if not interactable_areas.has(area):
-				get_tree().change_scene_to_packed(next)
+				emit_signal("interact")
 				
 		
 			

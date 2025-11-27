@@ -1,5 +1,7 @@
 extends Area2D
 
+signal talked
+
 var dialogue = load("res://dialogue/fire_keeper.dialogue") # dialogue file
 var can_interact = false
 
@@ -24,7 +26,9 @@ func _physics_process(_delta):
 				if not interactable_areas.has(area):
 					DialogueManager.show_dialogue_balloon(dialogue, "start")
 					await DialogueManager.dialogue_ended
+					
 					# other dialogue things here
+					emit_signal("talked")
 				
 		
 			
