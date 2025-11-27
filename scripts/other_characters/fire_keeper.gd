@@ -1,14 +1,15 @@
 extends Area2D
 
-signal talking
 signal talked
 
 var dialogue = load("res://dialogue/fire_keeper.dialogue") # dialogue file
 var can_interact = false
+var player = null
 
 var interactable_areas = []
 
 func _ready():
+	player = get_tree().get_first_node_in_group("player")
 	$AnimationPlayer.play("idle")
 
 
@@ -23,13 +24,14 @@ func _physics_process(_delta):
 				current_interactables.append(area)
 				
 				if not interactable_areas.has(area):
-					emit_signal("talking")
+					player.busy = true
 					DialogueManager.show_dialogue_balloon(dialogue, "start")
 					await DialogueManager.dialogue_ended
 					
 					# other dialogue things here
 					emit_signal("talked")
 					can_interact = false
+					player.busy = false
 				
 		
 			

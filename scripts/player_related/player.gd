@@ -15,6 +15,7 @@ signal magic_changed(amount_changed)
 var direction = Vector2.ZERO 
 var facing = "down"
 var attacking = false
+var busy = false
 
 func _ready(): # on startup things
 	$Interact.hide() # ensure player interact area hidden
@@ -22,28 +23,28 @@ func _ready(): # on startup things
 
 func get_input(): # standard input behavior
 	direction = Vector2.ZERO
-
-
-	if Input.is_action_pressed("move_up"):
-		if not attacking:
-			facing = "up"
-			$AnimationPlayer.play("walk_up")
-			direction.y -= 1
-	elif Input.is_action_pressed("move_down"):
-		if not attacking:
-			facing = "down"
-			$AnimationPlayer.play("walk_down")
-			direction.y += 1
-	elif Input.is_action_pressed("move_left"):
-		if not attacking:
-			facing = "left"
-			$AnimationPlayer.play("walk_left")
-			direction.x -= 1
-	elif Input.is_action_pressed("move_right"):
-		if not attacking:
-			facing = "right"
-			$AnimationPlayer.play("walk_right")
-			direction.x += 1
+	
+	if not busy:
+		if Input.is_action_pressed("move_up"):
+			if not attacking:
+				facing = "up"
+				$AnimationPlayer.play("walk_up")
+				direction.y -= 1
+		elif Input.is_action_pressed("move_down"):
+			if not attacking:
+				facing = "down"
+				$AnimationPlayer.play("walk_down")
+				direction.y += 1
+		elif Input.is_action_pressed("move_left"):
+			if not attacking:
+				facing = "left"
+				$AnimationPlayer.play("walk_left")
+				direction.x -= 1
+		elif Input.is_action_pressed("move_right"):
+			if not attacking:
+				facing = "right"
+				$AnimationPlayer.play("walk_right")
+				direction.x += 1
 		
 	if Input.is_action_just_pressed("attack"):
 		if magic > 0:
