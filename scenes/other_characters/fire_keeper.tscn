@@ -44,6 +44,8 @@ _data = {
 }
 
 [node name="Fire Keeper" type="Area2D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_klxbd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

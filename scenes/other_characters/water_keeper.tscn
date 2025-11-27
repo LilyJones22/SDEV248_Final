@@ -44,6 +44,8 @@ _data = {
 }
 
 [node name="Water Keeper" type="Area2D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_mxwcd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

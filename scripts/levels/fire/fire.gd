@@ -37,4 +37,5 @@ func check_total_dead():
 		enemies_gone()
 
 func _on_exit_mirror_interact():
+	GameState.fire_complete = true
 	get_tree().change_scene_to_file("res://scenes/levels/hub.tscn")

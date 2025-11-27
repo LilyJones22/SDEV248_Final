@@ -18,6 +18,7 @@ func _on_water_puzzle_water_solved():
 	$"Water Keeper".can_interact = true
 
 func _on_exit_mirror_interact():
+	GameState.water_complete = true
 	get_tree().change_scene_to_file("res://scenes/levels/hub.tscn")
 
 func _on_water_keeper_talked():
