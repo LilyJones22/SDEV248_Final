@@ -29,6 +29,6 @@ func _on_water_mirror_interact():
 
 func _on_final_mirror_interact():
 	if GameState.preserve_count > GameState.reject_count:
-		get_tree().change_scene_to_file() #accept ending
+		get_tree().change_scene_to_file("res://scenes/cutscene/accept_ending.tscn")
 	else:
-		get_tree.change_scene_to_file() # reject ending
+		get_tree().change_scene_to_file("res://scenes/cutscene/reject_ending.tscn")
