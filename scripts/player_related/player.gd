@@ -65,6 +65,7 @@ func get_input(): # standard input behavior
 		$Interact.show()
 	else:
 		$Interact.hide()
+		
 
 func take_damage(): # if player gets hurt -- TO DO: animation
 	health_changed.emit(-1)
