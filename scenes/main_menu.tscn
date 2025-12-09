@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://csamvn140plej"]
+[gd_scene load_steps=2 format=3 uid="uid://csamvn140plej"]
+
+[ext_resource type="Script" uid="uid://bhd8nwq6o564w" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 
 [node name="Main Menu" type="Node"]
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -28.0
+offset_top = -19.0
+offset_right = 1167.0
+offset_bottom = 665.0
+color = Color(0.27569968, 0.27569968, 0.27569965, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 385.0
+offset_top = 187.0
+offset_right = 779.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 85
+text = "Veilstorm"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 516.0
+offset_top = 540.0
+offset_right = 648.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 20
+text = "Developed By"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 495.0
+offset_top = 568.0
+offset_right = 675.0
+offset_bottom = 681.0
+theme_override_font_sizes/font_size = 40
+text = "Lily Jones"
+
+[node name="Start" type="Button" parent="."]
+offset_left = 364.0
+offset_top = 312.0
+offset_right = 608.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 30
+text = "Start New Game"
+
+[node name="Load" type="Button" parent="."]
+offset_left = 642.0
+offset_top = 313.0
+offset_right = 796.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 30
+text = "Load Save"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
