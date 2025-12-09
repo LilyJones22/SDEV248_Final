@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbahuebou7yod"]
+[gd_scene load_steps=3 format=3 uid="uid://dowoadq8qcrlt"]
 
-[ext_resource type="VideoStream" uid="uid://tb0w0vqjkbws" path="res://cutscenes/Veilstorm Game Over.ogv" id="1_pjtkj"]
-[ext_resource type="Script" uid="uid://b8nh3xqyv7v8i" path="res://scenes/cutscene/game_over.gd" id="2_7hbxj"]
+[ext_resource type="VideoStream" uid="uid://3eypmhvn0ohy" path="res://cutscenes/Veilstorm Reject Ending.ogv" id="1_iijvq"]
+[ext_resource type="Script" uid="uid://ddrqk6l8tt1gd" path="res://scenes/cutscene/reject_ending.gd" id="2_lp35s"]
 
 [node name="Accept Ending" type="VideoStreamPlayer"]
 offset_left = 73.0
@@ -9,9 +9,9 @@ offset_top = -53.0
 offset_right = 1513.0
 offset_bottom = 1027.0
 scale = Vector2(0.7, 0.7)
-stream = ExtResource("1_pjtkj")
+stream = ExtResource("1_iijvq")
 autoplay = true
-script = ExtResource("2_7hbxj")
+script = ExtResource("2_lp35s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1

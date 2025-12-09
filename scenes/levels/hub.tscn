@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bciu7cpdtxolh"]
+[gd_scene load_steps=10 format=3 uid="uid://bciu7cpdtxolh"]
 
 [ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="1_qssp3"]
 [ext_resource type="Script" uid="uid://djsarg4hpqc1u" path="res://scenes/levels/hub.gd" id="1_ysqli"]
 [ext_resource type="Texture2D" uid="uid://cwe5kk3eu6101" path="res://final_art/enviornment/hub/hub_tileset.png" id="2_erssn"]
 [ext_resource type="PackedScene" uid="uid://c3yfxx7avknuy" path="res://scenes/levels/exit_mirror.tscn" id="3_t8fgl"]
 [ext_resource type="Texture2D" uid="uid://5dd0o7yh7hvn" path="res://final_art/enviornment/hub/mirrorBlank_fire.png" id="5_hgdgd"]
+[ext_resource type="Texture2D" uid="uid://d10dp4a1a5jbg" path="res://final_art/enviornment/hub/mirrorBlank_full.png" id="6_ysqli"]
 [ext_resource type="Texture2D" uid="uid://34xvtnj6nhlp" path="res://final_art/enviornment/hub/mirrorBlank_water.png" id="7_pu6vg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysqli"]
@@ -84,13 +85,24 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" parent="WaterMirror" index="0"]
 texture = ExtResource("7_pu6vg")
 
+[node name="Final Mirror" parent="." instance=ExtResource("3_t8fgl")]
+position = Vector2(528, 220)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Final Mirror" index="0"]
+texture = ExtResource("6_ysqli")
+
 [node name="player" parent="." instance=ExtResource("1_qssp3")]
+position = Vector2(-13, 157)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(528, 288)
 
 [connection signal="interact" from="FireMirror" to="." method="_on_fire_mirror_interact"]
 [connection signal="interact" from="WaterMirror" to="." method="_on_water_mirror_interact"]
+[connection signal="interact" from="Final Mirror" to="." method="_on_final_mirror_interact"]
 
 [editable path="FireMirror"]
 [editable path="WaterMirror"]
+[editable path="Final Mirror"]

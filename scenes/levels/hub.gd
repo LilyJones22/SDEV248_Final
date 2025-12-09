@@ -25,3 +25,10 @@ func _on_water_mirror_interact():
 		DialogueManager.show_dialogue_balloon(mirror_dialogue, "water")
 		await DialogueManager.dialogue_ended
 		player.busy = false
+
+
+func _on_final_mirror_interact():
+	if GameState.preserve_count > GameState.reject_count:
+		get_tree().change_scene_to_file() #accept ending
+	else:
+		get_tree.change_scene_to_file() # reject ending

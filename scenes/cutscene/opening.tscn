@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqsvhl0rv2m88"]
+
+[ext_resource type="VideoStream" uid="uid://boj0576435ghu" path="res://cutscenes/Veilstorm Opening.ogv" id="1_07gob"]
+[ext_resource type="Script" uid="uid://ds2ys5du68hgy" path="res://scenes/cutscene/opening.gd" id="2_3job6"]
+
+[node name="Accept Ending" type="VideoStreamPlayer"]
+offset_left = -0.9999924
+offset_top = -99.0
+offset_right = 1439.0
+offset_bottom = 981.0
+scale = Vector2(0.8, 0.8)
+stream = ExtResource("1_07gob")
+autoplay = true
+script = ExtResource("2_3job6")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
