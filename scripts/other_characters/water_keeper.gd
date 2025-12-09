@@ -24,14 +24,15 @@ func _physics_process(_delta):
 				current_interactables.append(area)
 				
 				if not interactable_areas.has(area):
-					player.busy = true
-					DialogueManager.show_dialogue_balloon(dialogue, "start")
-					await DialogueManager.dialogue_ended
-					
-					# other dialogue things here
-					emit_signal("talked")
-					can_interact = false
-					player.busy = false
+					if not player.busy:
+						player.busy = true
+						DialogueManager.show_dialogue_balloon(dialogue, "start")
+						await DialogueManager.dialogue_ended
+						
+						# other dialogue things here
+						emit_signal("talked")
+						can_interact = false
+						player.busy = false
 				
 		
 			

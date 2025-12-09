@@ -46,20 +46,20 @@ func get_input(): # standard input behavior
 				$AnimationPlayer.play("walk_right")
 				direction.x += 1
 		
-	if Input.is_action_just_pressed("attack"):
-		if magic > 0:
-			attacking = true
-			if facing == "up":
-				$AnimationPlayer.play("attack_up")
-			elif facing == "down":
-				$AnimationPlayer.play("attack_down")
-			elif facing == "left":
-				$AnimationPlayer.play("attack_left")
-			elif facing == "right":
-				$AnimationPlayer.play("attack_right")
-			
-			await get_tree().create_timer(1).timeout
-			deal_damage()
+		if Input.is_action_just_pressed("attack"):
+			if magic > 0:
+				attacking = true
+				if facing == "up":
+					$AnimationPlayer.play("attack_up")
+				elif facing == "down":
+					$AnimationPlayer.play("attack_down")
+				elif facing == "left":
+					$AnimationPlayer.play("attack_left")
+				elif facing == "right":
+					$AnimationPlayer.play("attack_right")
+				
+				await get_tree().create_timer(1).timeout
+				deal_damage()
 		
 	if Input.is_action_just_pressed("interact"):
 		$Interact.show()
