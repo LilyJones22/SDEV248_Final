@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cyd08abdamfty"
+path="res://.godot/imported/spirit_keeper.dialogue-d2d9388f493b608c46ee637dc2e5577c.tres"
+
+[deps]
+
+source_file="res://dialogue/spirit_keeper.dialogue"
+dest_files=["res://.godot/imported/spirit_keeper.dialogue-d2d9388f493b608c46ee637dc2e5577c.tres"]
+
+[params]
+
+defaults=true

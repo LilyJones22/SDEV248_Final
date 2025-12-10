@@ -1,0 +1,9 @@
+~ start
+Keeper: Who are you beneath memory, beneath choice, beneath fear?
+- Someonw whole. Someone meant for more.
+	set GameState.preserve_count += 1
+- I... I'm not sure anyone is there.
+	set GameState.reject_count += 1
+	
+set GameState.talked_spirit = true
+=> END

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bsdjuxtrvi6l7"
+path="res://.godot/imported/earth_keeper.dialogue-be4117c1040ab1406747ef80b0e3bf75.tres"
+
+[deps]
+
+source_file="res://dialogue/earth_keeper.dialogue"
+dest_files=["res://.godot/imported/earth_keeper.dialogue-be4117c1040ab1406747ef80b0e3bf75.tres"]
+
+[params]
+
+defaults=true

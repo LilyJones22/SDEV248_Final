@@ -1,0 +1,9 @@
+~ start
+Keeper: Do you follow the winds of change, or do you let them dictate you?
+- I follow them with intention.
+	set GameState.preserve_count += 1
+- They carry me. I have no direction of my own.
+	set GameState.reject_count += 1
+	
+set GameState.talked_air = true
+=> END

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://u4el3r877dgt"
+path="res://.godot/imported/air_keeper.dialogue-7032cbc65ddec1cf165545517854a1a6.tres"
+
+[deps]
+
+source_file="res://dialogue/air_keeper.dialogue"
+dest_files=["res://.godot/imported/air_keeper.dialogue-7032cbc65ddec1cf165545517854a1a6.tres"]
+
+[params]
+
+defaults=true

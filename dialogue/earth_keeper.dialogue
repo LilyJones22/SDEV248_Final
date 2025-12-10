@@ -1,0 +1,9 @@
+~ start
+Keeper: Do you see yourself as something growing or something breaking?
+- Growing. My roots hold.
+	set GameState.preserve_count += 1
+- Breaking. There's nothing firm beneath me.
+	set GameState.reject_count += 1
+	
+set GameState.talked_earth = true
+=> END
