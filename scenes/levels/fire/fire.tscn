@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bleo5s4d27yof"]
+[gd_scene load_steps=11 format=3 uid="uid://bleo5s4d27yof"]
 
 [ext_resource type="PackedScene" uid="uid://bkb1d3o5e4mds" path="res://scenes/other_characters/fire_keeper.tscn" id="1_mblqy"]
 [ext_resource type="Script" uid="uid://bceq1fi8sg2r8" path="res://scripts/levels/fire/fire.gd" id="1_pqkdo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vwgtn576x5w6" path="res://scenes/levels/fire/fire_enemy.tscn" id="3_31xnf"]
 [ext_resource type="PackedScene" uid="uid://c3yfxx7avknuy" path="res://scenes/levels/exit_mirror.tscn" id="5_ecx1o"]
 [ext_resource type="Texture2D" uid="uid://dqfafoo748kal" path="res://final_art/enviornment/fire/mirror_fire.png" id="7_linkw"]
+[ext_resource type="AudioStream" uid="uid://bi0l4egnr606l" path="res://audio/fire.wav" id="8_7foin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7foin"]
 texture = ExtResource("2_ecx1o")
@@ -103,6 +104,10 @@ texture = ExtResource("7_linkw")
 
 [node name="player" parent="." instance=ExtResource("2_e63pj")]
 position = Vector2(-322, 482)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7foin")
+autoplay = true
 
 [connection signal="talked" from="Fire Keeper" to="." method="_on_fire_keeper_talked"]
 [connection signal="death" from="enemies/Fire Enemy" to="." method="_on_fire_enemy_death"]

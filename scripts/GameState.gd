@@ -6,11 +6,11 @@ var player = null
 var preserve_count = 0
 var reject_count = 0
 
-var air_complete = false
+var air_complete = true
 var water_complete = false
-var earth_complete = false
+var earth_complete = true
 var fire_complete = false
-var spirit_complete = false
+var spirit_complete = true
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")

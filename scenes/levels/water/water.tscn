@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsrqu6b5fr4wi"]
+[gd_scene load_steps=12 format=3 uid="uid://bsrqu6b5fr4wi"]
 
 [ext_resource type="Script" uid="uid://bmhdtsfkotj15" path="res://scenes/levels/water/water.gd" id="1_0bhgi"]
 [ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="1_ppl7k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6s4ef11jdat8" path="res://final_art/enviornment/water/challenge/puzzle1_Full.png" id="4_d0whp"]
 [ext_resource type="PackedScene" uid="uid://c3yfxx7avknuy" path="res://scenes/levels/exit_mirror.tscn" id="6_7203i"]
 [ext_resource type="Texture2D" uid="uid://bvgbxulstgrog" path="res://final_art/enviornment/water/mirror_water.png" id="8_kyxfi"]
+[ext_resource type="AudioStream" uid="uid://ga27yg1lqm5x" path="res://audio/water.wav" id="9_kyxfi"]
 [ext_resource type="Texture2D" uid="uid://dbaadi2q3ap22" path="res://final_art/enviornment/water/water_tileset.png" id="9_qwvie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyxfi"]
@@ -115,6 +116,10 @@ texture = ExtResource("8_kyxfi")
 
 [node name="player" parent="." instance=ExtResource("1_ppl7k")]
 position = Vector2(-689, 586)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_kyxfi")
+autoplay = true
 
 [connection signal="water_solved" from="water puzzle" to="." method="_on_water_puzzle_water_solved"]
 [connection signal="talked" from="Water Keeper" to="." method="_on_water_keeper_talked"]

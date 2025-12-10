@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bciu7cpdtxolh"]
+[gd_scene load_steps=11 format=3 uid="uid://bciu7cpdtxolh"]
 
 [ext_resource type="PackedScene" uid="uid://xqt5r4ullpk2" path="res://scenes/player_related/player.tscn" id="1_qssp3"]
 [ext_resource type="Script" uid="uid://djsarg4hpqc1u" path="res://scenes/levels/hub.gd" id="1_ysqli"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://5dd0o7yh7hvn" path="res://final_art/enviornment/hub/mirrorBlank_fire.png" id="5_hgdgd"]
 [ext_resource type="Texture2D" uid="uid://d10dp4a1a5jbg" path="res://final_art/enviornment/hub/mirrorBlank_full.png" id="6_ysqli"]
 [ext_resource type="Texture2D" uid="uid://34xvtnj6nhlp" path="res://final_art/enviornment/hub/mirrorBlank_water.png" id="7_pu6vg"]
+[ext_resource type="AudioStream" uid="uid://1ol8r3cvke3v" path="res://audio/HUB.wav" id="8_t8fgl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysqli"]
 texture = ExtResource("2_erssn")
@@ -98,6 +99,10 @@ position = Vector2(-13, 157)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(528, 288)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_t8fgl")
+autoplay = true
 
 [connection signal="interact" from="FireMirror" to="." method="_on_fire_mirror_interact"]
 [connection signal="interact" from="WaterMirror" to="." method="_on_water_mirror_interact"]

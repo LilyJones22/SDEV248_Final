@@ -8,7 +8,7 @@ func _ready():
 	$player.global_position = $PlayerSpawn.global_position
 	player = get_tree().get_first_node_in_group("player")
 	
-	if GameState.preserve_count + GameState.reject_count == 5:
+	if GameState.air_complete and GameState.water_complete and GameState.earth_complete and GameState.fire_complete and GameState.spirit_complete:
 		$"Final Mirror".visible = true
 	
 
