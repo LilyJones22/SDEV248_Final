@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7o7jwv7cahsq"]
+
+[ext_resource type="Script" uid="uid://bop1chnkp6bue" path="res://scripts/levels/spirit/spirit.gd" id="1_vcusn"]
+
+[node name="spirit" type="Node"]
+script = ExtResource("1_vcusn")

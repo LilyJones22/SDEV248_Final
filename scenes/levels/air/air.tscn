@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ec8n625gbcf"]
+
+[ext_resource type="Script" uid="uid://3hxooorgylqq" path="res://scripts/levels/air/air.gd" id="1_5yvxh"]
+
+[node name="Air" type="Node"]
+script = ExtResource("1_5yvxh")

@@ -1,3 +1,4 @@
+#REMEMBER TO CHANGE IF MORE LEVELS ARE ADDED
 extends Node
 
 var save_path = "user://veilstorm.save"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxf4agcelta6v"]
+
+[ext_resource type="Script" uid="uid://bup18jukvl6ps" path="res://scripts/levels/earth/earth.gd" id="1_5x2wu"]
+
+[node name="Earth" type="Node"]
+script = ExtResource("1_5x2wu")

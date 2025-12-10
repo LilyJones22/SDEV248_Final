@@ -535,6 +535,7 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("6_m5fmn")]
+visible = false
 
 [connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
 [connection signal="magic_changed" from="." to="HUD" method="_on_player_magic_changed"]
