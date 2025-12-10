@@ -1,9 +1,9 @@
 ~ start
-Keeper: If your heart breaks do you let the pieces sink or teach them to float?
-- Let them sink. I won't pretend
-	set GameState.reject_count += 1
-- I want to heal, not drown
+Keeper: Is your identity shapped by your choices...or by the expectations of others?
+- By my choices. I will shape myself with intent
 	set GameState.preserve_count += 1
+- By others. I don't think I ever had a say
+	set GameState.reject_count += 1
 	
 set GameState.talked_water = true
 => END

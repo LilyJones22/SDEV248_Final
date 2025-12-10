@@ -3,8 +3,21 @@ You no longer feel the warmth.
 The path cannot be used again.
 => END
 
-
 ~ water
 You no longer hear the waves.
 The path cannot be used again.
 => END
+
+~ air
+The wind does not move blow beyond here.
+The path cannot be used.
+=> END 
+
+~ earth
+The ground does not shift beyond here.
+The path cannot be used.
+=> END 
+
+~ spirit
+The essence does not exist beyond here.
+The path cannot be used.

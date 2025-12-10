@@ -1,9 +1,9 @@
 ~ start
-Keeper: What would you burn to protect what remains?
-- I won't flinch. Let the flames take what they must
-	set GameState.reject_count += 1
-- I'll protect what remains without sacrificing what matters
+Keeper: What cost are you willing to pay to become who you claim to be?
+- Whatever it takes. Purpose is worth the price.
 	set GameState.preserve_count += 1
+- I won't pay anything. I don't know who I'm becoming.
+	set GameState.reject_count += 1
 	
 set GameState.talked_fire = true
 => END
